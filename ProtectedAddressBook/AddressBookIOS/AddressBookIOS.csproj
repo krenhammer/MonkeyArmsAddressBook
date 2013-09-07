@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -76,6 +76,9 @@
     <CodesignProvision>Automatic:AppStore</CodesignProvision>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MonkeyArmsFramework">
+      <HintPath>..\..\..\MonkeyArms\MonkeyArms\MonkeyArmsFramework\bin\Debug\MonkeyArmsFramework.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
@@ -84,16 +87,7 @@
       <HintPath>..\Components\xamarin.mobile-0.6.3\lib\ios\Xamarin.Mobile.dll</HintPath>
     </Reference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Resources\" />
-    <Folder Include="Delegates\" />
-    <Folder Include="ViewControllers\" />
-    <Folder Include="TableSources\" />
-    <Folder Include="Images\" />
-    <Folder Include="Images\loading\" />
-    <Folder Include="Images\background\" />
-    <Folder Include="Images\logos\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="Info.plist" />
   </ItemGroup>
@@ -107,10 +101,9 @@
     <Compile Include="ViewControllers\ContactDetailsViewController.cs" />
     <Compile Include="TableSources\ContactDetailsTableSource.cs" />
   </ItemGroup>
-  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.MonoTouch.CSharp.targets" />
   <ItemGroup>
     <XamarinComponentReference Include="xamarin.mobile">
-      <InstallationInProgress>False</InstallationInProgress>
       <Version>0.6.3</Version>
       <Visible>False</Visible>
     </XamarinComponentReference>
@@ -119,10 +112,6 @@
     <ProjectReference Include="..\AddressBookCore\AddressBookCore.csproj">
       <Project>{33688577-6152-40DF-A58F-8F12FA367603}</Project>
       <Name>AddressBookCore</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\..\MonkeyArms\MonkeyArms\MonkeyArmsFramework\MonkeyArmsFramework.csproj">
-      <Project>{A58D8DAE-62D2-40C4-9361-5BAF30CF1747}</Project>
-      <Name>MonkeyArmsFramework</Name>
     </ProjectReference>
   </ItemGroup>
   <ProjectExtensions>
